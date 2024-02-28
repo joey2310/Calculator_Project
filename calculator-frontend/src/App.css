@@ -59,3 +59,25 @@
 .buttons:hover {
   background-color: hsl(0, 0%, 89%);
 }
+
+table{
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td{
+  text-align: center;
+  color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+th{
+  background-color:#00ffbf;
+  color: rgb(0, 0, 0);
+}
+
+tr{
+  align-items: center;
+}
