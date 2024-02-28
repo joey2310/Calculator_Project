@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-  function App() {
-    const [input, setInput] = useState('');
-    const [result, setResult] = useState('');
-  
-    const handleClick = (value) => {
-      if (value === '=') {
+function App() {
+  const [input, setInput] = useState('');
+  const [result, setResult] = useState('');
+
+  const handleClick = (value) => {
+    if (value === 'AC') {
+      setInput('');
+      setResult('');
+    } else if (value === '%') {
+      setInput((prevInput) => {
         try {
-          setResult(eval(input));
+          setResult(eval(prevInput) / 100);
+          return (eval(prevInput) / 100).toString();
         } catch (error) {
-          setResult('Error');
+          setResult('');
+          return '';
         }
-      } else if (value === 'AC') {
-        setInput('');
-        setResult('');
-      } else if (value === '%') {
-        // Handling percentage logic
-        setInput((prevInput) => {
-          try {
-            setResult(eval(prevInput) / 100);
-            return (eval(prevInput) / 100).toString();
-          } catch (error) {
-            setResult('Error');
-            return '';
-          }
-        });
-      } else {
-        setInput((prevInput) => prevInput + value);
-      }
-    };
+      });
+    } else if (value === 'Back') {
+      setInput((prevInput) => prevInput.slice(0, -1)); // Remove the last character
+    } else {
+      setInput((prevInput) => prevInput + value);
+    }
+  };
+
+  useEffect(() => {
+    try {
+      setResult(eval(input));
+    } catch (error) {
+      setResult('');
+    }
+  }, [input]);
+
 
   return (
     <div className='completeBox'>
@@ -37,12 +41,12 @@ import './App.css';
       <h1>CALCULATOR</h1>
       </div>
       <div className='numberBox'>
-      <input className="input" type="number" value={input} readOnly />
+      <input className="input" type="text" value={input} readOnly />
       </div>
       <div className='numberBox'>
       <div>
-        <button className='buttons' onClick={() => handleClick('AC')}><h2>AC</h2></button>
-        <button className='buttons' onClick={() => handleClick('')}><h2>Back</h2></button>
+        <button className='buttons' onClick={() => handleClick('History')}><h2>History</h2></button>
+        <button className='buttons' onClick={() => handleClick('Back')}><h2>Back</h2></button>
         <button className='buttons' onClick={() => handleClick('%')}><h2>%</h2></button>
         <button className='buttons' onClick={() => handleClick('/')}><h2>/</h2></button>
       </div>
@@ -68,11 +72,11 @@ import './App.css';
         <button className='buttons' onClick={() => handleClick('00')}><h2>00</h2></button>
         <button className='buttons' onClick={() => handleClick('0')}><h2>0</h2></button>
         <button className='buttons' onClick={() => handleClick('.')}><h2>.</h2></button>
-        <button className='buttons' onClick={() => handleClick('=')}><h2>=</h2></button>
+        <button className='buttons' onClick={() => handleClick('AC')}><h2>AC</h2></button>
       </div>
       </div>
       <div className='numberBox'>
-        <input className="input" type="number" value={result} readOnly/>
+        <input className="input" type="text" value={result} readOnly/>
       </div>
     </div>
   );
