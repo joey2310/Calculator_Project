@@ -63,18 +63,25 @@
 table{
   width: 100%;
   margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 4px inset #ffffff;
 }
 
 th, td{
+  font-size: 20px;
   text-align: center;
-  color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  padding: 5px;
+  color: #000000;
+  border: 4px inset #ffffff;
+  padding: 8px;
+  background-color: whitesmoke;
 }
 
 th{
-  background-color:#00ffbf;
+  border: 4px inset #ffffff;
+  padding: 8px;
+  background-color:#adadad;
   color: rgb(0, 0, 0);
 }
 
