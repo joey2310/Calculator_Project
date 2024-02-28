@@ -45,7 +45,7 @@ function App() {
       </div>
       <div className='numberBox'>
       <div>
-        <button className='buttons' onClick={() => handleClick('History')}><h2>History</h2></button>
+        <button className='buttons' onClick={() => handleClick('')}><h2>History</h2></button>
         <button className='buttons' onClick={() => handleClick('Back')}><h2>Back</h2></button>
         <button className='buttons' onClick={() => handleClick('%')}><h2>%</h2></button>
         <button className='buttons' onClick={() => handleClick('/')}><h2>/</h2></button>
@@ -72,7 +72,7 @@ function App() {
         <button className='buttons' onClick={() => handleClick('00')}><h2>00</h2></button>
         <button className='buttons' onClick={() => handleClick('0')}><h2>0</h2></button>
         <button className='buttons' onClick={() => handleClick('.')}><h2>.</h2></button>
-        <button className='buttons' onClick={() => handleClick('AC')}><h2>AC</h2></button>
+        <button className='buttons1' onClick={() => handleClick('AC')}><h2>AC</h2></button>
       </div>
       </div>
       <div className='numberBox'>

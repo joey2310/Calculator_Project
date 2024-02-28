@@ -34,6 +34,17 @@
   padding: 10px;
 }
 
+.buttons1 {
+  margin: 5px;
+  width: 90px;
+  height: 50px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  background-color:#00ffbf;
+  cursor: pointer;
+}
+
 .buttons {
   margin: 5px;
   width: 90px;
