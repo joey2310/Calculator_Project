@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  const [input, setInput] = useState('');
-  const [result, setResult] = useState('');
-
-  const handleClick = (value) => {
-    if (value === '=') {
-      try {
-        setResult(eval(input));
-      } catch (error) {
-        setResult('Error');
+  function App() {
+    const [input, setInput] = useState('');
+    const [result, setResult] = useState('');
+  
+    const handleClick = (value) => {
+      if (value === '=') {
+        try {
+          setResult(eval(input));
+        } catch (error) {
+          setResult('Error');
+        }
+      } else if (value === 'AC') {
+        setInput('');
+        setResult('');
+      } else if (value === '%') {
+        // Handling percentage logic
+        setInput((prevInput) => {
+          try {
+            setResult(eval(prevInput) / 100);
+            return (eval(prevInput) / 100).toString();
+          } catch (error) {
+            setResult('Error');
+            return '';
+          }
+        });
+      } else {
+        setInput((prevInput) => prevInput + value);
       }
-    } else if (value === 'AC') {
-      setInput('');
-      setResult('');
-    } else {
-      setInput((prevInput) => prevInput + value);
-    }
-  };
+    };
 
   return (
     <div className='completeBox'>
@@ -31,15 +42,15 @@ function App() {
       <div className='numberBox'>
       <div>
         <button className='buttons' onClick={() => handleClick('AC')}><h2>AC</h2></button>
-        <button className='buttons' onClick={() => handleClick('')}><h2>%</h2></button>
         <button className='buttons' onClick={() => handleClick('')}><h2>Back</h2></button>
+        <button className='buttons' onClick={() => handleClick('%')}><h2>%</h2></button>
         <button className='buttons' onClick={() => handleClick('/')}><h2>/</h2></button>
       </div>
       <div>
         <button className='buttons' onClick={() => handleClick('7')}><h2>7</h2></button>
         <button className='buttons' onClick={() => handleClick('8')}><h2>8</h2></button>
         <button className='buttons' onClick={() => handleClick('9')}><h2>9</h2></button>
-        <button className='buttons' onClick={() => handleClick('*')}><h2>x</h2></button>
+        <button className='buttons' onClick={() => handleClick('*')}><h2>X</h2></button>
       </div>
       <div>
         <button className='buttons' onClick={() => handleClick('4')}><h2>4</h2></button>
