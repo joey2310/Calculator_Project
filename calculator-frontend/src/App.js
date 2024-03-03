@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import {FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
   const [input, setInput] = useState('');
@@ -46,33 +51,33 @@ function App() {
       <div className='numberBox'>
         <div>
           <button className='buttons1' onClick={() => handleClick('AC')}><h2>AC</h2></button>
-          <button className='buttons' onClick={() => handleClick('Back')}><h2>Back</h2></button>
-          <button className='buttons' onClick={() => handleClick('%')}><h2>%</h2></button>
-          <button className='buttons' onClick={() => handleClick('/')}><h2>/</h2></button>
+          <button className='buttons' onClick={() => handleClick('Back')}><h2> <FontAwesomeIcon icon={['fas', 'arrow-left']} /></h2></button>
+          <button className='buttons' onClick={() => handleClick('%')}><h2><FontAwesomeIcon icon={['fas', 'fa-percent']} /></h2></button>
+          <button className='buttons' onClick={() => handleClick('/')}><h2><FontAwesomeIcon icon={['fas', 'fa-divide']} /></h2></button>
         </div>
         <div>
           <button className='buttons' onClick={() => handleClick('7')}><h2>7</h2></button>
           <button className='buttons' onClick={() => handleClick('8')}><h2>8</h2></button>
           <button className='buttons' onClick={() => handleClick('9')}><h2>9</h2></button>
-          <button className='buttons' onClick={() => handleClick('*')}><h2>X</h2></button>
+          <button className='buttons' onClick={() => handleClick('*')}><h2><FontAwesomeIcon icon={['fas', 'fa-xmark']} /></h2></button>
         </div>
         <div>
           <button className='buttons' onClick={() => handleClick('4')}><h2>4</h2></button>
           <button className='buttons' onClick={() => handleClick('5')}><h2>5</h2></button>
           <button className='buttons' onClick={() => handleClick('6')}><h2>6</h2></button>
-          <button className='buttons' onClick={() => handleClick('-')}><h2>-</h2></button>
+          <button className='buttons' onClick={() => handleClick('-')}><h2><FontAwesomeIcon icon={['fas', 'fa-minus']} /></h2></button>
         </div>
         <div>
           <button className='buttons' onClick={() => handleClick('1')}><h2>1</h2></button>
           <button className='buttons' onClick={() => handleClick('2')}><h2>2</h2></button>
           <button className='buttons' onClick={() => handleClick('3')}><h2>3</h2></button>
-          <button className='buttons' onClick={() => handleClick('+')}><h2>+</h2></button>
+          <button className='buttons' onClick={() => handleClick('+')}><h2><FontAwesomeIcon icon={['fas', 'fa-plus']} /></h2></button>
         </div>
         <div>
           <button className='buttons' onClick={() => handleClick('00')}><h2>00</h2></button>
           <button className='buttons' onClick={() => handleClick('0')}><h2>0</h2></button>
           <button className='buttons' onClick={() => handleClick('.')}><h2>.</h2></button>
-          <button className='buttons' type='submit' onClick={() => handleClick('=')}><h2>=</h2></button>
+          <button className='buttons' type='submit' onClick={() => handleClick('=')}><h2><FontAwesomeIcon icon={['fas', 'fa-equals']} /></h2></button>
         </div>
       </div>
       <div className='numberBox'>
@@ -101,3 +106,4 @@ function App() {
 }
 
 export default App;
+library.add(fab, fas, far)
